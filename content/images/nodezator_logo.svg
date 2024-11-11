@@ -1,0 +1,33 @@
+<svg width="83" height="88" xmlns="http://www.w3.org/2000/svg">
+
+      <style>
+
+svg > .whiteshape {
+  fill:white;
+}
+
+line {
+  stroke:white;
+  stroke-width:8px;
+}
+
+#bg_rect {
+  fill: rgb(80, 80, 90);
+  stroke:none;
+}
+
+      </style>
+
+      <rect id="bg_rect" x="0" y="0" width="83" height="88" rx="10" ry="10" />
+
+      <circle class="whiteshape" cx="18" cy="65" r="12" />
+      <circle class="whiteshape" cx="53" cy="65" r="12" />
+
+      <circle class="whiteshape" cx="28" cy="25" r="12" />
+      <circle class="whiteshape" cx="63" cy="25" r="12" />
+
+      <line x1="18" y1="65" x2="28" y2="25" />
+      <line x1="28" y1="25" x2="53" y2="65" />
+      <line x1="53" y1="65" x2="63" y2="25" />
+
+</svg>
