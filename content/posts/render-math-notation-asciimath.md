@@ -1,0 +1,142 @@
+authors: Kennedy Richard S. Guerra
+author-urls: https://kennedyrichard.com
+keywords: asciimath
+          math notation
+          py_asciimath
+          sympy
+description: Rendering math notation with the ASCIIMath, py_asciimath and sympy libraries within Nodezator
+publish-date: 2023-09-23
+include-comment-section: True
+
+# Render math notation with ASCIIMath using py_asciimath and sympy libraries
+
+<img class="img-fluid mb-4" src="https://i.imgur.com/CDgj8yf.png" alt="Screenshot of Nodezator demonstrating conversion of ASCIIMath code into a rendered surface." />
+
+A user asked me for ASCIIMath support within Nodezator, that is, to be able to turn ASCIIMath (a markup language to represent math notation) into the corresponding rendered image. Thankfully, this could already be done within Nodezator! Nodezator is just a node-based environment for Python callables, so it can use virtually any Python code/library available. All I had to do was experiment a bit with available Python libraries and the solution I came up with was the one demonstrated in the video below:
+
+<div class="ratio ratio-16x9 my-4">
+    <iframe src="https://www.youtube.com/embed/F8BVAqgxBwQ"></iframe>
+</div>
+
+In it, I use the [py_asciimath](https://github.com/belerico/py_asciimath) library to convert the ASCIIMath code into a format that is more widely supported, which is Latex. The Latex code generated can then be easily rendered as an image by the [sympy](https://www.sympy.org/en/index.html) library, using its `preview` function. For `sympy.preview` to work for this purpose, though, you must make sure the `latex` command is available in your system, since it is used internally by sympy to perform the rendering. Latex is available for all major systems. Only parts of it can be installed depending on your specific purposes, but since I wasn't sure what parts of it were needed for math notation rendering, I decided to make a full installation, which is what I recommend. Beware that it is a somewhat large download though (a few gigabytes).
+
+Those operations resulted in 02 custom nodes being created: `asciimath2latex` and `latex2surface`:
+
+<img class="mb-4" src="https://i.imgur.com/y8b3yyG.png" alt="Nodes for converting ASCIIMath code into a rendered surface (image)." />
+
+Here are the sources of those nodes:
+
+`asciimath2latex` node:
+
+```python
+### third-party import
+from py_asciimath.translator.translator import ASCIIMath2Tex
+
+
+
+## translator callable
+latex_from_asciimath = ASCIIMath2Tex(log=False, inplace=True).translate
+
+
+## main callable
+
+def asciimath2latex(asciimath_code:str='') -> [
+    {'name': 'latex_code', 'type': str}
+]:
+    return latex_from_asciimath(
+        asciimath_code,
+        displaystyle=True,
+        from_file=False,
+        pprint=False,
+    )
+
+
+main_callable = asciimath2latex
+```
+
+`latex2surface` node:
+
+```python
+### standard library import
+from io import BytesIO
+
+
+### third-party imports
+
+## pygame-ce
+
+from pygame import Surface
+
+from pygame.image import load as load_image
+
+
+## sympy
+from sympy import preview
+
+
+
+def latex2surface(
+    latex_code: str = '',
+    font_size_prefix : {
+        'widget_name': 'option_menu',
+        'widget_kwargs': {
+            'options': [
+                'none',
+                r'\tiny',
+                r'\scriptsize',
+                r'\footnotesize',
+                r'\small',
+                r'\normalsize',
+                r'\large',
+                r'\Large',
+                r'\LARGE',
+                r'\huge',
+                r'\Huge',
+            ],
+        },
+        'type': str,
+    } = r'\Large',
+) -> [
+    {'name': 'surface', 'type': Surface}
+]:
+
+    ### add font size prefix if requested
+
+    if font_size_prefix != 'none':
+        latex_code = font_size_prefix + latex_code
+
+    ### create bytes stream and populate it with bytes
+    ### representing rendered PNG file
+
+    bytes_io = BytesIO()
+
+    preview(
+        latex_code,
+        output='png',
+        viewer='BytesIO',
+        outputbuffer=bytes_io,
+    )
+
+    ### change the stream position to start of stream
+    ### (this way the bytes can be read properly)
+    bytes_io.seek(0)
+
+    ### convert bytes stream (a file-like object), into
+    ### a surface
+    surface = load_image(bytes_io, 'file.png')
+
+    ### close the bytes stream, since we won't need it anymore
+    bytes_io.close()
+
+    ### finally return the surface
+    return surface
+
+
+main_callable = latex2surface
+```
+
+You can use this source however you see fit, it is mostly comprised of calls to functions from external libraries anyway (but even if I were to license it, I'd use a public domain license, just like I did with Nodezator and other Indie Python projects). If you don't know how to load nodes into Nodezator or how to use it altogether, there's an online manual with all information you need: [https://manual.nodezator.com](https://manual.nodezator.com).
+
+The other nodes in the demonstration video are nodes available by default in Nodezator. To visualize the surface, I used the `view_surface` node (popup menu > general viewer nodes > view_surface), but before I used the `increase_surf_border` node (popup menu > pygame-ce > Encapsulations > increase_surf_border), with the color set to white to add a border around it (to serve as a padding). This is not shown in the video, but if the user desires, the surface can also be saved to disk as an image file (.png/.jpg) with the `save_surf_to_file` node (popup menu > pygame-ce > pygame.image > save_surf_to_file).
+
+Here's the link to the original discussion between me and the user: [https://github.com/IndieSmiths/nodezator/discussions/67](https://github.com/IndieSmiths/nodezator/discussions/67).

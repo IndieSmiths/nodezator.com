@@ -1,4 +1,8 @@
-<h1>Features</h1>
+authors: Kennedy Richard S. Guerra
+keywords: features
+description: Features of the Nodezator app
+
+# Features
 
 <section class="d-flex flex-wrap">
 
