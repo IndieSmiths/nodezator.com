@@ -39,33 +39,6 @@ MANDATORY_POST_METADATA = (
     *MANDATORY_PAGE_METADATA,
 )
 
-meta_in_post_template = Template("""
-<ul>
-
-<li>Author(s): $authors</li>
-<li>Created: $created</li>
-$updated
-
-</ul>
-""".strip()
-)
-
-post_item_in_index_template = Template("""
-    <div class="card p-2 m-2 bg-dark">
-
-        <a href="$urlname">
-            <img class="card-img-top" src="$image_src" alt="$image_alt" />
-        </a>
-
-    
-        <div class="card-body">
-          <a href="$urlname"><h4 class="card-title">$title</h4></a>
-          <p class="card-text">$publish_date $last_updated</p>
-          <p class="card-text">$description <a href="$urlname">Read more</a></p>
-        </div>
-    </div>
-"""
-)
 
 md = Markdown(extensions=['meta', 'extra', 'sane_lists'])
 
@@ -89,32 +62,25 @@ else:
 ### copy images folder as-is
 copytree(str(sourcepath / 'images'), str(targetpath / 'images'))
 
-### grab templates
+### load templates and reference them locally
 
 _templates_dir = sourcepath / '_templates'
 
-page_template = (
-    Template(
-        (_templates_dir / 'page.html').read_text(encoding='utf-8')
-    )
-)
+_template_map = {
+    path.stem: Template(path.read_text(encoding='utf-8'))
+    for path in _templates_dir.iterdir()
+}
 
-post_template = (
-    Template(
-        (_templates_dir / 'post.html').read_text(encoding='utf-8')
-    )
-)
-
-redirect_template = (
-    Template(
-        (_templates_dir / 'redirect.html').read_text(encoding='utf-8')
-    )
-)
+page_template = _template_map['page']
+post_template = _template_map['post']
+redirect_template = _template_map['redirect']
+in_post_meta_template = _template_map['in_post_meta']
+post_item_in_index_template = _template_map['post_item_in_index']
 
 ### comment related module-level values
 
-COMMENT_SCRIPT = (
-    sourcepath / '_scripts' / 'giscus.txt'
+COMMENT_SECTION_HTML = (
+    sourcepath / '_comment_section.html'
 ).read_text(encoding='utf-8')
 
 INCLUDE_COMMENT_SECTION_DEFAULT = ('False',)
@@ -160,6 +126,17 @@ def main():
                     f"{path} page missing following keys: {missing_keys}"
                 )
 
+            include_comment_section = (
+
+                literal_eval(
+                    meta.get(
+                        'include-comment-section',
+                        INCLUDE_COMMENT_SECTION_DEFAULT,
+                    )[0]
+                )
+
+            )
+
             ## prepare data
 
             page_data = {
@@ -168,6 +145,9 @@ def main():
                 'description': meta['description'][0],
                 'keywords': ', '.join(meta['keywords']),
                 'content': html_text,
+                'comment_section': (
+                    COMMENT_SECTION_HTML if include_comment_section else ''
+                ),
             }
 
             final_html_text = page_template.substitute(page_data)
@@ -253,6 +233,16 @@ def main():
 
                 post_html = insert_meta_into_post(post_meta, post_html)
 
+                post_data = {
+
+                    'category_title': category_title,
+                    'title': post_title,
+                    'article': post_html,
+
+                }
+
+                final_post_text = post_template.substitute(post_data)
+
                 include_comment_section = (
 
                     literal_eval(
@@ -264,25 +254,15 @@ def main():
 
                 )
 
-                post_data = {
-
-                    'category_title': category_title,
-                    'title': post_title,
-                    'article': post_html,
-                    'comment_script': (
-                        COMMENT_SCRIPT if include_comment_section else ''
-                    ),
-
-                }
-
-                final_post_text = post_template.substitute(post_data)
-
                 post_page_data = {
                     'title': post_title,
                     'authors': get_authors_meta(post_meta['authors']),
                     'description': post_meta['description'][0],
                     'keywords': ', '.join(post_meta['keywords']),
                     'content': final_post_text,
+                    'comment_section': (
+                        COMMENT_SECTION_HTML if include_comment_section else ''
+                    ),
                 }
 
                 ###
@@ -345,6 +325,7 @@ def main():
                 'description': f"Chronological pieces in the {path_name} category",
                 'keywords': ', '.join({f'{path_name}', 'pieces', 'articles'}),
                 'content': posts_index_html,
+                'comment_section': '', # index doesn't enable comments
             }
 
             final_html_text = page_template.substitute(page_data)
@@ -454,7 +435,7 @@ def insert_meta_into_post(post_meta, post_html):
         else ''
     )
 
-    meta_content = meta_in_post_template.substitute(
+    meta_content = in_post_meta_template.substitute(
         authors=authors,
         created=created,
         updated=updated,
