@@ -1,0 +1,199 @@
+
+translated_by
+
+    en-us Translated by
+    pt-br Traduzido por
+
+page
+
+    lang_keywords
+
+        en-us projects, indie development, indie game development, public domain, open-source software
+        pt-br projetos, desenvolvimento independente, desenvolvimento de jogos independente, desenvolvimento de jogos indie, domínio público, software de código aberto
+
+    header_and_nav
+
+        header_text
+
+            en-us Indie Smiths: fun, learning and value from open-source apps, games and related content
+            pt-br 
+
+        logo_alt
+
+            en-us Indie Smiths's logo symbol
+            pt-br Logo (isotipo) de Kennedy R. S. Guerra
+
+        home
+
+            en-us Home
+            pt-br Início
+
+        about
+
+            en-us About
+            pt-br Sobre
+
+        about_link
+
+            en-us about
+            pt-br sobre
+
+        apps_and_games
+
+            en-us Apps & games
+            pt-br Apps e jogos
+
+        apps_and_games_link
+
+            en-us apps-games
+            pt-br apps-jogos
+
+        essays
+
+            en-us Essays
+            pt-br Ensaios
+
+        essays_link
+
+            en-us essays
+            pt-br ensaios
+
+        donate
+
+            en-us Donate
+            pt-br Doe
+
+        donate_link
+
+            en-us donate
+            pt-br doe
+
+        site_search_placeholder
+
+            en-us Search
+            pt-br Pesquise
+
+    footer
+
+        useful_links
+
+            en-us Useful links
+            pt-br Links úteis
+
+        developer
+
+            en-us developer
+            pt-br desenvolvedor
+
+        consider_supporting
+
+            en-us Please, consider supporting the project
+            pt-br Por favor, considere apoiar o projeto
+
+        more_options
+
+            en-us more options
+            pt-br mais opções
+
+        present
+
+            en-us present
+            pt-br presente
+
+        website_source
+
+            en-us Website's source
+            pt-br Código-fonte do site
+
+    filenames
+
+        about
+
+            en-us about
+            pt-br sobre
+
+        apps_games
+
+            en-us apps-games
+            pt-br apps-jogos
+
+        donate
+
+            en-us donate
+            pt-br doe
+
+
+post
+
+    date_format
+
+        en-us date format
+        pt-br formato de datas
+
+    year_month_day
+
+        en-us year-month-day
+        pt-br ano-mês-dia
+
+    metadata
+
+        written_by
+
+            en-us Written by
+            pt-br Escrito por
+
+        created_on
+
+            en-us Created on
+            pt-br Criado em
+
+        last_updated_on
+
+            en-us Last updated on
+            pt-br Atualizado em
+
+
+    category_info
+
+        essays
+
+            target_folder_name
+
+                en-us essays
+                pt-br ensaios
+
+            title
+
+                en-us Essays
+                pt-br Ensaios
+
+            description
+
+                en-us Essays related to the Indie Smiths project and its apps/games
+                pt-br Ensaios relacionados ao projeto Indie Smiths e seus apps/jogos
+
+            keywords
+
+                en-us essays, apps, games
+                pt-br ensaios, apps, jogos
+
+            filenames
+
+                cohesive_teleportation_bionic_blue
+
+                    en-us cohesive-teleportation-bionic-blue
+                    pt-br teletransporte-coeso-bionic-blue
+
+
+
+redirect_page
+
+    title
+
+        en-us Redirecting to another page
+        pt-br Redirecionando para outra página
+
+    message
+
+        en-us If you weren't redirected automatically, click this link to go to the intended page
+        pt-br Se você não foi redirecionado automaticamente, clique neste link para seguir para a página alvo

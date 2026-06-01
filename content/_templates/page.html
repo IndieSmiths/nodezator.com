@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="$lang">
 
 <head>
 
@@ -12,7 +12,7 @@
 $authors
 
   <meta name="description" content="$description"/>
-  <meta name="keywords" content="$keywords, nodezator, node editor, node editing, python node editor, generalist node editor, python generalist node editor, graph, desktop, desktop application, software, app, Indie Smiths, Python, Python programing language, pygame, pygame-ce, Kennedy Richard"/>
+  <meta name="keywords" content="nodezator, node editor, node editing, python node editor, generalist node editor, python generalist node editor, graph, desktop, desktop application, software, app, Indie Smiths, Python, Python programing language, pygame, pygame-ce, Kennedy Richard, $keywords, $lang_keywords"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <!-- ##### icon -->
@@ -96,93 +96,7 @@ pre {
 
 <body>
 
-  <!-- header -->
-
-  <header class="container-fluid p-2">
-
-    <div class="clearfix">
-
-      <a class="float-start" href="/">
-        <img style="height:50px" src="/images/nodezator_logo.svg" alt="Nodezator's logo"/>
-      </a>
-
-      <form class="d-flex float-end" method="get" action="https://www.google.com/search">
-
-          <input type="hidden" name="sitesearch" value="nodezator.com"/>
-          <input type="text" name="q" class="form-control me-2" placeholder="Search"/>
-          <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-
-      </form>
-
-    </div>
-
-    <span>Nodezator: multi-purpose visual node editor for the Python programming language</span>
-    <br /><div class="my-2"><i class="fa fa-keyboard-o icon20px"></i> <code>pip install nodezator</code>, then run the <code>nodezator</code> command</div>
-
-  </header>
-
-
-  <!-- Navigation bar -->
-
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:rgb(65, 65, 65);">
-
-      <div class="container-fluid">
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-              <span class="navbar-toggler-icon"/>
-          </button>
-
-          <div class="collapse navbar-collapse" id="mynavbar">
-
-              <ul class="navbar-nav me-auto" style="font-weight:bold;">
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/about.html">About</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/features.html">Features</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/screenshots.html">Screenshots</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/posts/index.html">Posts</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="https://github.com/IndieSmiths/nodezator">Github <i class="fa fa-github icon20px"></i></a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="https://manual.nodezator.com">Manual <i class="fa fa-external-link icon20px"></i></a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="https://gallery.nodezator.com">Find nodes <i class="fa fa-external-link icon20px"></i></a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="https://indiesmiths.com/discord">Discord <i class="fa fa-external-link icon20px"></i></a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link active" href="https://indiesmiths.com/donate">Donate <i class="fa fa-external-link icon20px"></i></a>
-                  </li>
-
-              </ul>
-
-          </div>
-
-      </div>
-
-    </nav>
+$header_and_nav
 
 
   <!-- Page content -->
@@ -193,24 +107,8 @@ $content
 
 $comment_section
 
-  <!-- Footer -->
+$footer
 
-<footer class="container-fluid">
-
-  <div class="d-flex flex-wrap my-1">
-
-      <div>Contact me:</div>
-      <a class="mx-2" href="https://kennedyrichard.com"><i class="fa fa-link icon20px"></i> My website</a>
-      <a class="mx-2" rel="me" href="https://fosstodon.org/@KennedyRichard"><i class="fa fa-link icon20px"></i> Mastodon</a>
-      <a class="mx-2" href="https://bsky.app/profile/kennedyrichard.com"><i class="fa fa-link icon20px"></i> Bluesky</a>
-      <a class="mx-2" href="https://x.com/KennedyRichard"><i class="fa fa-link icon20px"></i> Twitter/X</a>
-      <a class="mx-2" href="mailto:kennedy@kennedyrichard.com"><i class="fa fa-envelope icon20px" style="color:rgb(10, 120, 240);"></i> Email</a>
-
-  </div>
-
-  <p>© 2022-present Kennedy Richard Silva Guerra</p>
-<a href="https://github.com/IndieSmiths/nodezator.com">Website's source</a>
-</footer>
 <br />
 
 
