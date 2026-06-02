@@ -188,6 +188,17 @@ def generate_site_for_locale(locale_path):
 
                 'logo_alt': t.logo_alt,
 
+                'pip_text': (
+
+                    t
+                    .pip_text
+                    .format(
+                        pip_command='pip install nodezator',
+                        nodezator_command='nodezator'
+                    )
+
+                )
+
                 'home': t.home,
 
                 'home_link': '/' + (

@@ -8,20 +8,28 @@ page
 
     lang_keywords
 
-        en-us projects, indie development, indie game development, public domain, open-source software
-        pt-br projetos, desenvolvimento independente, desenvolvimento de jogos independente, desenvolvimento de jogos indie, domínio público, software de código aberto
+        en-us node editor, node editing, generalist node editor, python generalist node editor, python programming language, graph, desktop application, public domain, open-source software
+        pt-br editor de nós, edição de nós, editor de nós generalista, editor de nós generalista de python, linguagem de programação python, grafo, aplicativo de desktop, domínio público, software de código aberto
 
     header_and_nav
 
         header_text
 
-            en-us Indie Smiths: fun, learning and value from open-source apps, games and related content
-            pt-br 
+            en-us Nodezator: multi-purpose visual node editor for the Python programming language
+            pt-br Nodezator: editor visual de nós multipropósito para a linguagem de programação Python
 
         logo_alt
 
-            en-us Indie Smiths's logo symbol
-            pt-br Logo (isotipo) de Kennedy R. S. Guerra
+            en-us Nodezator's logo symbol
+            pt-br Logo (isotipo) de Nodezator
+
+        pip_text
+
+            # this will look like this:
+            # "'pip install nodezator', then run the 'nodezator' command"
+
+            en-us {pip_command}, then run the {nodezator_command} command
+            pt-br {pip_command}, depois execute o comando {nodezator_command}
 
         home
 
@@ -38,15 +46,15 @@ page
             en-us about
             pt-br sobre
 
-        apps_and_games
+        features
 
-            en-us Apps & games
-            pt-br Apps e jogos
+            en-us Features
+            pt-br Funcionalidades
 
-        apps_and_games_link
+        features_link
 
-            en-us apps-games
-            pt-br apps-jogos
+            en-us features
+            pt-br funcionalidades
 
         essays
 
@@ -58,6 +66,31 @@ page
             en-us essays
             pt-br ensaios
 
+        posts
+
+            en-us Posts
+            pt-br Posts
+
+        posts_link
+
+            en-us posts
+            pt-br posts
+
+        manual
+
+            en-us Manual
+            pt-br Manual
+
+        screenshots
+
+            en-us Screenshots
+            pt-br Capturas de tela
+
+        screenshots_link
+
+            en-us screenshots
+            pt-br capturas-de-tela
+
         donate
 
             en-us Donate
@@ -67,6 +100,16 @@ page
 
             en-us donate
             pt-br doe
+
+        discord_link
+
+            en-us https://discord.gg/exg3Thvpw6
+            pt-br https://discord.gg/UnZuy68rxU
+
+        find_nodes
+
+            en-us Find nodes
+            pt-br Encontre nós (inglês)
 
         site_search_placeholder
 
