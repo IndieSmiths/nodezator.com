@@ -550,11 +550,12 @@ def generate_site_for_locale(locale_path):
 
             posts_index_html = (
                 f'<h1>{category_title}</h1>\n\n<p>{description}.</p>'
-                f'\n\n<p>({date_format_extended_text})</p>'
-                '\n\n<ul style="list-style-type:none">\n\n'
+                f'\n\n<p>({date_format_extended_text})</p>\n\n'
+                '<section class="d-flex flex-wrap">'
             )
 
             last_updated_text = tlns.post.metadata.last_updated_on.lower()
+            read_more_text = tlns.post.read_more
 
             for post_meta in posts_meta:
 
@@ -567,18 +568,27 @@ def generate_site_for_locale(locale_path):
 
                 title = post_meta['title']
                 urlname = post_meta['urlname']
-
-                posts_index_html += (
-                    f'<li>{date_info} <a href="{urlname}">{title}</a>'
-                )
-
+                image_src = post_meta['image_src']
+                image_alt = post_meta['image_alt']
                 description = post_meta['description'][0]
 
-                posts_index_html += f': {description}.'
+                posts_index_html += (
 
-                posts_index_html += '</li>\n'
+                    post_item_in_index_template.substitute(
+                        urlname=urlname,
+                        title=title,
+                        image_src=image_src,
+                        image_alt=image_alt,
+                        description=description,
+                        date_info=date_info,
+                        read_more=read_more_text,
+                    )
 
-            posts_index_html += '\n</ul>'
+                )
+
+                posts_index_html += '\n'
+
+            posts_index_html += '\n</section>'
 
             ## write index
 
