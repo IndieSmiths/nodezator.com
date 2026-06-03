@@ -280,12 +280,12 @@ def generate_site_for_locale(locale_path):
 
                 for name in (
 
-                    'useful_links',
-                    'developer',
-                    'consider_supporting',
-                    'more_options',
+                    'contact_me',
+                    'kennedy_site_link',
+                    'my_website',
+                    'email',
                     'present',
-                    'website_source',
+                    'websites_source',
 
                 )
 

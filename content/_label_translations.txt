@@ -118,32 +118,27 @@ page
 
     footer
 
-        useful_links
+        email
 
-            en-us Useful links
-            pt-br Links úteis
+            en-us Email
+            pt-br Email
 
-        developer
+        kennedy_site_link
 
-            en-us developer
-            pt-br desenvolvedor
+            en-us https://kennedyrichard.com
+            pt-br https://kennedyrichard.com/pt-br
 
-        consider_supporting
+        my_website
 
-            en-us Please, consider supporting the project
-            pt-br Por favor, considere apoiar o projeto
-
-        more_options
-
-            en-us more options
-            pt-br mais opções
+            en-us My website
+            pt-br Meu website
 
         present
 
             en-us present
             pt-br presente
 
-        website_source
+        websites_source
 
             en-us Website's source
             pt-br Código-fonte do site
