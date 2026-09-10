@@ -98,8 +98,8 @@ page
 
         donate_link
 
-            en-us donate
-            pt-br doe
+            en-us https://indiesmiths.com/donate
+            pt-br https://indiesmiths.com/pt-br/doe
 
         discord_link
 
@@ -207,20 +207,54 @@ post
 
             description
 
-                en-us Essays related to the Indie Smiths project and its apps/games
-                pt-br Ensaios relacionados ao projeto Indie Smiths e seus apps/jogos
+                en-us Essays related to Nodezator and/or tangential topics
+                pt-br Ensaios relacionados ao Nodezator e/ou tópicos tangenciais
 
             keywords
 
-                en-us essays, apps, games
-                pt-br ensaios, apps, jogos
+                en-us essays
+                pt-br ensaios
 
             filenames
 
-                cohesive_teleportation_bionic_blue
+                untapped_potential_text_interfaces
 
-                    en-us cohesive-teleportation-bionic-blue
-                    pt-br teletransporte-coeso-bionic-blue
+                    en-us untapped-potential-text-interfaces
+                    pt-br potencial-indexplorado-interfaces-text
+
+        posts
+
+            target_folder_name
+
+                en-us posts
+                pt-br posts
+
+            title
+
+                en-us Posts
+                pt-br Posts
+
+            description
+
+                en-us Posts showcasing experiments with Nodezator
+                pt-br Posts mostrando experimentos com Nodezator
+
+            keywords
+
+                en-us posts, experiments
+                pt-br posts, experimentos
+
+            filenames
+
+                experiments_python_svg
+
+                    en-us experiments-python-svg
+                    pt-br experimentos-python-svg
+
+                render_math_notation_ascii_math
+
+                    en-us render-math-notation-ascii-math
+                    pt-br renderize-notacao-matematica-ascii-math
 
 
 

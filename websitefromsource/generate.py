@@ -215,13 +215,21 @@ def generate_site_for_locale(locale_path):
                     else f'{locale_dir_name}/'
                 ) + f'{t.about_link}.html',
 
-                'apps_and_games': t.apps_and_games,
+                'features': t.features,
 
-                'apps_and_games_link': '/' + (
+                'features_link': '/' + (
                     ''
                     if locale_dir_name == 'en-us'
                     else f'{locale_dir_name}/'
-                ) + f'{t.apps_and_games_link}.html',
+                ) + f'{t.features_link}.html',
+
+                'screenshots': t.screenshots,
+
+                'screenshots_link': '/' + (
+                    ''
+                    if locale_dir_name == 'en-us'
+                    else f'{locale_dir_name}/'
+                ) + f'{t.screenshots_link}.html',
 
                 'essays': t.essays,
 
@@ -231,25 +239,27 @@ def generate_site_for_locale(locale_path):
                     else f'{locale_dir_name}/'
                 ) + f'{t.essays_link}',
 
-                'discord_link': '/' + (
+                'posts': t.posts,
+
+                'posts_link': '/' + (
                     ''
                     if locale_dir_name == 'en-us'
                     else f'{locale_dir_name}/'
-                ) + f'discord.html',
+                ) + f'{t.posts_link}',
+
+                'manual': t.manual,
+
+                'discord_link': t.discord_link,
 
                 'donate': t.donate,
 
-                'donate_link': '/' + (
-                    ''
-                    if locale_dir_name == 'en-us'
-                    else f'{locale_dir_name}/'
-                ) + f'{t.donate_link}.html',
+                'donate_link': t.donate_link,
 
                 'site_search_placeholder': t.site_search_placeholder,
 
                 'site_search_url': (
 
-                    'indiesmiths.com' + (
+                    'nodezator.com' + (
 
                         ''
                         if locale_path.name == 'en-us'
