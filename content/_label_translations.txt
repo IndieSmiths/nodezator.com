@@ -150,15 +150,15 @@ page
             en-us about
             pt-br sobre
 
-        apps_games
+        features
 
-            en-us apps-games
-            pt-br apps-jogos
+            en-us features
+            pt-br funcionalidades
 
-        donate
+        screenshots
+            en-us screenshots
+            pt-br capturas-de-tela
 
-            en-us donate
-            pt-br doe
 
 
 post
