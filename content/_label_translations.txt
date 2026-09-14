@@ -118,6 +118,11 @@ page
 
     footer
 
+        contact_me
+
+            en-us Contact me
+            pt-br Me contate
+
         email
 
             en-us Email
@@ -251,10 +256,10 @@ post
                     en-us experiments-python-svg
                     pt-br experimentos-python-svg
 
-                render_math_notation_ascii_math
+                render_math_notation_asciimath
 
-                    en-us render-math-notation-ascii-math
-                    pt-br renderize-notacao-matematica-ascii-math
+                    en-us render-math-notation-asciimath
+                    pt-br renderize-notacao-matematica-asciimath
 
 
 

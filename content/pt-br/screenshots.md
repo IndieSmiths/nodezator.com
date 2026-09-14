@@ -1,42 +1,42 @@
 authors: Kennedy Richard S. Guerra
-keywords: screenshots
+keywords: capturas de tela
           images
-description: Screenshots of the Nodezator app.
+description: Capturas de tela do app Nodezator.
 
-# Screenshots
+# Capturas de tela
 
-Splashscreen
-<img src="https://i.imgur.com/nPzK0iv.png" alt="Splashscreen" class="img-fluid rounded mb-4" />
+Tela de apresentação
+<img src="https://i.imgur.com/nPzK0iv.png" alt="Tela de apresentação" class="img-fluid rounded mb-4" />
 
-Node layout
-<img src="https://i.imgur.com/34dMY3X.png" alt="Node layout" class="img-fluid rounded mb-4" />
+Layout de nós
+<img src="https://i.imgur.com/34dMY3X.png" alt="Layout de nós" class="img-fluid rounded mb-4" />
 
-You can use virtually any external libraries: custom nodes using the Pillow library
-<img src="https://i.imgur.com/8LO7sDY.png" alt="Node layout" class="img-fluid rounded mb-4" />
+Você pode usar praticamente quaisquer bibliotecas externas: nós customizados utilizando a biblioteca Pillow
+<img src="https://i.imgur.com/8LO7sDY.png" alt="Layout de nós" class="img-fluid rounded mb-4" />
 
-You can use virtually any external libraries: custom nodes using the matplotlib library
-<img src="https://i.imgur.com/0xOY11q.png" alt="Node layout" class="img-fluid rounded mb-4" />
+Você pode usar praticamente quaisquer bibliotecas externas: nós customizados utilizando a biblioteca matplotlib
+<img src="https://i.imgur.com/0xOY11q.png" alt="Layout de nós" class="img-fluid rounded mb-4" />
 
-File manager
-<img src="https://i.imgur.com/gIlkfZI.png" alt="File manager" class="img-fluid rounded mb-4" />
+Gerenciador de arquivos
+<img src="https://i.imgur.com/gIlkfZI.png" alt="Gerenciador de arquivos" class="img-fluid rounded mb-4" />
 
-Simple text/code editor
-<img src="https://i.imgur.com/rW9Z1BY.png" alt="Simple text/code editor" class="img-fluid rounded mb-4" />
+Editor simples de texto/código
+<img src="https://i.imgur.com/rW9Z1BY.png" alt="Editor simples de texto/código" class="img-fluid rounded mb-4" />
 
-Images viewer
-<img src="https://i.imgur.com/pasD4RV.png" alt="Images viewer" class="img-fluid rounded mb-4" />
+Visualizador de imagens
+<img src="https://i.imgur.com/pasD4RV.png" alt="Visualizador de imagens" class="img-fluid rounded mb-4" />
 
-Colors editor
-<img src="https://i.imgur.com/XyWRwcX.png" alt="Colors editor" class="img-fluid rounded mb-4" />
+Editor de cores
+<img src="https://i.imgur.com/XyWRwcX.png" alt="Editor de cores" class="img-fluid rounded mb-4" />
 
-Colors viewer - color list
-<img src="https://i.imgur.com/FmGV3XQ.png" alt="Colors viewer color list" class="img-fluid rounded mb-4" />
+Visualizador de cores - lista de cores
+<img src="https://i.imgur.com/FmGV3XQ.png" alt="Visualizador de cores - lista de cores" class="img-fluid rounded mb-4" />
 
-Colors viewer - patterns: circles
-<img src="https://i.imgur.com/Eqypmop.png" alt="Colors viewer patterns circles" class="img-fluid rounded mb-4" />
+Visualizador de cores - padrões: círculos
+<img src="https://i.imgur.com/Eqypmop.png" alt="Visualizador de cores - padrões: círculos" class="img-fluid rounded mb-4" />
 
-Colors viewer - patterns: waves
-<img src="https://i.imgur.com/cUsxAKQ.png" alt="Colors viewer patterns waves" class="img-fluid rounded mb-4" />
+Visualizador de cores - padrões: ondas
+<img src="https://i.imgur.com/cUsxAKQ.png" alt="Visualizador de cores - padrões: ondas" class="img-fluid rounded mb-4" />
 
 Widgets
 <img src="https://i.imgur.com/WPg8qis.png" alt="Widgets" class="img-fluid rounded" />

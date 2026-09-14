@@ -105,10 +105,9 @@ comment_script_template,
         'page_footer.html',
         'post.html',
         'metadata_for_post.html',
-        'post_item_in_index_template.html',
-        'post_item_in_index',
+        'post_item_in_index.html',
         'redirect.html',
-        'giscus.html',
+        'comment_section.html',
 
     )
 
@@ -197,7 +196,7 @@ def generate_site_for_locale(locale_path):
                         nodezator_command='nodezator'
                     )
 
-                )
+                ),
 
                 'home': t.home,
 
@@ -248,6 +247,8 @@ def generate_site_for_locale(locale_path):
                 ) + f'{t.posts_link}',
 
                 'manual': t.manual,
+
+                'find_nodes': t.find_nodes,
 
                 'discord_link': t.discord_link,
 

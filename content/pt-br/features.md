@@ -98,51 +98,51 @@ description: Funcionalidades do app Nodezator
 
     <!---->
     <div class="card p-2 m-2 bg-dark" style="width:540px">
-        <img class="card-img-top" src="https://i.imgur.com/Wp3l2TU.png" alt="Nodezator interface showing operator nodes" />
+        <img class="card-img-top" src="https://i.imgur.com/Wp3l2TU.png" alt="Interface do Nodezator mostrando nós de operadores" />
 
         <div class="card-body">
-          <h4 class="card-title">Operator nodes</h4>
-          <p class="card-text">Operators in Python go well beyond their role in mathematical operations, since they can be overloaded. This gives them new meaning, making them more versatile. Moreover, there are also other kinds of operators, like logical operators and others used for comparison. Because of that, Nodezator comes with special operator nodes out of the box.</p>
+          <h4 class="card-title">Nós de operadores</h4>
+          <p class="card-text">Operadores em Python vão muito além de seus papéis em operações matemáticas, já que podem ser sobrecarregados. Isto lhes dá novo significado, o que os faz mais versáteis. Além disso, há também outros tipos de operadores, como operadores lógicos e outros usados para comparações. Por causa disso, Nodezator já vem com nós especiais de operações.</p>
         </div>
     </div>
 
     <!---->
     <div class="card p-2 m-2 bg-dark" style="width:540px">
-        <img class="card-img-top" src="https://i.imgur.com/viqGgh9.png" alt="Nodezator GUI showing a redirect node." />
+        <img class="card-img-top" src="https://i.imgur.com/viqGgh9.png" alt="GUI do Nodezator mostrando um nó de redirecionamento." />
 
         <div class="card-body">
           <h4 class="card-title">Redirect nodes</h4>
-          <p class="card-text">Nodezator also provides redirect nodes to help you simplify/organize your node layouts.</p>
+          <p class="card-text">Nodezator também oferece nós de redirecionamento para te ajudar a simplificar/organizar seus layouts de nós.</p>
         </div>
     </div>
 
     <!---->
     <div class="card p-2 m-2 bg-dark" style="width:540px">
-        <img class="card-img-top" src="https://i.imgur.com/S8jARgk.png" alt="Nodezator GUI with text viewer showing node source with syntax highlighting" />
+        <img class="card-img-top" src="https://i.imgur.com/S8jARgk.png" alt="GUI do Nodezator com visualizador de texto mostrando o código-fonte de um nó com realce de sintaxe." />
 
         <div class="card-body">
-          <h4 class="card-title">Node source view</h4>
-          <p class="card-text">Taking a look at the source code of a node is handy to inspect how exactly some operation is carried. Nodezator allows you to quickly visualize the source of a node.</p>
+          <h4 class="card-title">Visualização de código-fonte de nós</h4>
+          <p class="card-text">Dar uma olhada no código-fonte de um nó é útil para inspecionar exatamente como alguma operação é desempenhada. Nodezator permite que visualize o código-fonte de um nó rapidamente.</p>
         </div>
     </div>
 
     <!---->
     <div class="card p-2 m-2 bg-dark" style="width:540px">
-        <img class="card-img-top" src="https://i.imgur.com/686mSCz.png" alt="Nodezator GUI showing user preferences." />
+        <img class="card-img-top" src="https://i.imgur.com/686mSCz.png" alt="GUI do Nodezator mostrando preferências de usuário." />
 
         <div class="card-body">
-          <h4 class="card-title">User preferences and internationalization</h4>
-          <p class="card-text">Nodezator provides a user preferences form which allows you to set your preferences. Among the preferences, you can also choose the language you speak. Nodezator comes with both English and Brazilian Portuguese, but at the moment Brazilian Portuguese support is limited. We welcome contributions from people willing to add their own languages as well.</p>
+          <h4 class="card-title">Preferências de usuários e internacionalização</h4>
+          <p class="card-text">Nodezator oference um formulário de preferências de usuário que te permite configurar suas preferências. Dentre as preferências, você pode escolher o idioma. Nodezator vem com ambos inglês e português do Brasil, mas no momento o suporte ao português do Brasil é limitado. Contribuições de pessoas que queiram adicionar seus próprios idiomas também são bem-vindas.</p>
         </div>
     </div>
 
     <!---->
     <div class="card p-2 m-2 bg-dark" style="width:540px">
-        <img class="card-img-top" src="https://i.imgur.com/swxbpuv.png" alt="Nodezator GUI with text editor showing Python code with syntax highlighting" />
+        <img class="card-img-top" src="https://i.imgur.com/swxbpuv.png" alt="Gui do Nodezator com editor de texto mostrando código Python com realce de sintaxe." />
 
         <div class="card-body">
-          <h4 class="card-title">Text/code editor</h4>
-          <p class="card-text">Nodezator also comes with a builtin text/code editor. It can be used to write text, code, Python literals, json data, etc., just any kind of text. It also provides line numbering and Python syntax highlighting. Rather than a feature per se, though, the text editor is more of a convenience provided for you in the Nodezator app, since it doesn't replace a full-fledged text/code editor. It is great for simple/quick edits though.</p>
+          <h4 class="card-title">Editor de texto/código</h4>
+          <p class="card-text">Nodezator também vem com um editor de texto/código embutido. Pode ser utilizado para escrever texto, código, valores literais Python, data em json, etc., simplesmente qualquer tipo de texto. Também oferece numeração de linhas e realce de sintaxe Python. Ao invés de ser uma funcionalidade, no entanto, o editor de texto é mais precisamente uma conveniência oferecida a você no app Nodezator, já que não pode substituir a editor de texto/código completo. É ótimo para simples/rápidas edições, no entanto.</p>
         </div>
     </div>
 
