@@ -1,32 +1,32 @@
 authors: Kennedy Richard S. Guerra
 author-urls: https://kennedyrichard.com
 keywords: asciimath
-          math notation
+          notação matemática
           py_asciimath
           sympy
-description: Rendering math notation with the ASCIIMath, py_asciimath and sympy libraries within Nodezator
+description: Renderizando notação matemática com as bibliotecas ASCIIMath, py_asciimath and sympy no Nodezator
 publish-date: 2023-09-23
 include-comment-section: True
 
-# Render math notation with ASCIIMath using py_asciimath and sympy libraries
+# Renderize notação matemática com ASCIIMath usando as bibliotecas py_asciimath e sympy
 
-<img class="img-fluid mb-4" src="https://i.imgur.com/CDgj8yf.png" alt="Screenshot of Nodezator demonstrating conversion of ASCIIMath code into a rendered surface." />
+<img class="img-fluid mb-4" src="https://i.imgur.com/CDgj8yf.png" alt="Captura de tela do Nodezator demonstrando a conversão de código ASCIIMath numa superfície renderizada." />
 
-A user asked me for ASCIIMath support within Nodezator, that is, to be able to turn ASCIIMath (a markup language to represent math notation) into the corresponding rendered image. Thankfully, this could already be done within Nodezator! Nodezator is just a node-based environment for Python callables, so it can use virtually any Python code/library available. All I had to do was experiment a bit with available Python libraries and the solution I came up with was the one demonstrated in the video below:
+Um usuário me pediu por suporte a ASCIIMath no Nodezator, isto é, que fosse possível tornar ASCIIMath (uma linguagem de marcação para representar notação matemática) no imagem renderizada correspondente. Felizmente, isso já podia ser feito no Nodezator! Nodezator é apenas um ambiente baseado em nós para objetos chamáveis de Python, de maneira que pode utilizar praticamente qualquer código/biblioteca Python disponíveis. Tudo que tive de fazer foi fazer alguns experimentos com bibliotecas Python disponíveis e a solução a que cheguei foi a solução demonstrada no vídeo abaixo:
 
 <div class="ratio ratio-16x9 my-4">
     <iframe src="https://www.youtube.com/embed/F8BVAqgxBwQ"></iframe>
 </div>
 
-In it, I use the [py_asciimath](https://github.com/belerico/py_asciimath) library to convert the ASCIIMath code into a format that is more widely supported, which is Latex. The Latex code generated can then be easily rendered as an image by the [sympy](https://www.sympy.org/en/index.html) library, using its `preview` function. For `sympy.preview` to work for this purpose, though, you must make sure the `latex` command is available in your system, since it is used internally by sympy to perform the rendering. Latex is available for all major systems. Only parts of it can be installed depending on your specific purposes, but since I wasn't sure what parts of it were needed for math notation rendering, I decided to make a full installation, which is what I recommend. Beware that it is a somewhat large download though (a few gigabytes).
+Nela, uso a biblioteca [py_asciimath](https://github.com/belerico/py_asciimath) para converter o código ASCIIMath num formato que é mais abrangentemente suportado, que é o Latex. O código Latex gerado pode ser facilmente renderizado numa imagem pela biblioteca [sympy](https://www.sympy.org/en/index.html), usando sua função `preview`. Para `sympy.preview` funcionar para este propósito, no entanto, você deve garantir que o comando `latex` está disponível no seu sistema, já que ele é utilizado internamente pelo sympy para fazer a renderização. Latex está disponível para todos os principais sistemas. É possível instalar apenas algumas partes dele dependendo de seus propósitos específicos, mas como não tinha certeza que partes dele eram necessárias para renderização de notação matemática, decidi fazer uma instalação completa, que é o que recomendo. Tenha em mente que é um download relativamente grande (alguns gigabytes).
 
-Those operations resulted in 02 custom nodes being created: `asciimath2latex` and `latex2surface`:
+Essas operações resultaram na criação de 02 nós customizados, `asciimath2latex` e `latex2surface`:
 
-<img class="mb-4" src="https://i.imgur.com/y8b3yyG.png" alt="Nodes for converting ASCIIMath code into a rendered surface (image)." />
+<img class="mb-4" src="https://i.imgur.com/y8b3yyG.png" alt="Nós para converter código ASCIIMath numa superfície renderizada (imagem)." />
 
-Here are the sources of those nodes:
+Aqui estão os códigos-fonte desses nós:
 
-`asciimath2latex` node:
+Nó `asciimath2latex`:
 
 ```python
 ### third-party import
@@ -54,7 +54,7 @@ def asciimath2latex(asciimath_code:str='') -> [
 main_callable = asciimath2latex
 ```
 
-`latex2surface` node:
+Nó `latex2surface`:
 
 ```python
 ### standard library import
@@ -135,8 +135,8 @@ def latex2surface(
 main_callable = latex2surface
 ```
 
-You can use this source however you see fit, it is mostly comprised of calls to functions from external libraries anyway (but even if I were to license it, I'd use a public domain license, just like I did with Nodezator and other Indie Python projects). If you don't know how to load nodes into Nodezator or how to use it altogether, there's an online manual with all information you need: [https://manual.nodezator.com](https://manual.nodezator.com).
+Você pode usar estes códigos-fonte como quiser. Na sua maior parte são apenas execuções de funções de bibliotecas externas de qualquer modo (mas mesmo se eu fosse licenciar esse código, usaria uma licença de domínio público, como fiz com o Nodezator e outros subprojetos do projeto Indie Smiths). Se você não sabe como carregar nós no Nodezator or como usar o app como um todo, há um manual online com toda informação necessária (em inglês): [https://manual.nodezator.com](https://manual.nodezator.com).
 
-The other nodes in the demonstration video are nodes available by default in Nodezator. To visualize the surface, I used the `view_surface` node (popup menu > general viewer nodes > view_surface), but before I used the `increase_surf_border` node (popup menu > pygame-ce > Encapsulations > increase_surf_border), with the color set to white to add a border around it (to serve as a padding). This is not shown in the video, but if the user desires, the surface can also be saved to disk as an image file (.png/.jpg) with the `save_surf_to_file` node (popup menu > pygame-ce > pygame.image > save_surf_to_file).
+Os outros nós na demonstração do vídeo são nós prontos para uso que já vêm com o Nodezator. Para visualizar a superfície, usei o nó `view_surface` (menu de popup > nós gerais de visualização > `view_surface`), mas antes eu usei o nó `increase_surf_border` (aumentar borda da superfície) (menu de popup > pygame-ce > Encapsulações > `increase_surf_border`), com a cor configurada para branco para adicionar uma border ao redor (para servir como espaçamento interno). Isto não é mostrado no vídeo, mas se o usuário quiser, a superfície pode também ser salva no disco rígido como um arquivo de imagem (.png/.jpg) com o nó `save_surf_to_file` node (menu de popup > pygame-ce > pygame.image > `save_surf_to_file`).
 
-Here's the link to the original discussion between me and the user: [https://github.com/IndieSmiths/nodezator/discussions/67](https://github.com/IndieSmiths/nodezator/discussions/67).
+Aqui está o link para a discussão original entre mim e o usuário (em inglês): [https://github.com/IndieSmiths/nodezator/discussions/67](https://github.com/IndieSmiths/nodezator/discussions/67).

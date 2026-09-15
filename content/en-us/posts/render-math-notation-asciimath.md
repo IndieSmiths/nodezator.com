@@ -135,7 +135,7 @@ def latex2surface(
 main_callable = latex2surface
 ```
 
-You can use this source however you see fit, it is mostly comprised of calls to functions from external libraries anyway (but even if I were to license it, I'd use a public domain license, just like I did with Nodezator and other Indie Python projects). If you don't know how to load nodes into Nodezator or how to use it altogether, there's an online manual with all information you need: [https://manual.nodezator.com](https://manual.nodezator.com).
+You can use this source however you see fit, it is mostly comprised of calls to functions from external libraries anyway (but even if I were to license it, I'd use a public domain license, just like I did with Nodezator and other subprojects of the Indie Smiths project). If you don't know how to load nodes into Nodezator or how to use it altogether, there's an online manual with all information you need: [https://manual.nodezator.com](https://manual.nodezator.com).
 
 The other nodes in the demonstration video are nodes available by default in Nodezator. To visualize the surface, I used the `view_surface` node (popup menu > general viewer nodes > view_surface), but before I used the `increase_surf_border` node (popup menu > pygame-ce > Encapsulations > increase_surf_border), with the color set to white to add a border around it (to serve as a padding). This is not shown in the video, but if the user desires, the surface can also be saved to disk as an image file (.png/.jpg) with the `save_surf_to_file` node (popup menu > pygame-ce > pygame.image > save_surf_to_file).
 
