@@ -1,29 +1,29 @@
 authors: Kennedy Richard S. Guerra
 author-urls: https://kennedyrichard.com
 keywords: SVG
-          scalar vector graphics
-          vector graphics
+          gráficos vetoriais escaláveis
+          gráficos vetoriais
           cairoSVG
-description: Experiments with Python and SVG within Nodezator
+description: Experimentos com Python e SVG no Nodezator
 publish-date: 2023-10-23
 include-comment-section: True
 
 
-# Handling SVG images with Python (small demo)
+# Manipulando imagens SVG com Python (pequena demonstração)
 
-<img class="img-fluid mb-4" src="https://i.imgur.com/Q5oYm5Z.png" alt="Screenshot of Nodezator demonstrating graph with SVG rendered at the end as surface/still image." />
+<img class="img-fluid mb-4" src="https://i.imgur.com/Q5oYm5Z.png" alt="Captura de tela do Nodezator mostrando um grafo com SVG renderizado no fim como uma superfície/imagem estática." />
 
 
 
-## Introduction
+## Introdução
 
-I've been making different experiments/demos with Nodezator and other Python libraries in order to identify programming tasks that have synergy with a node-based approach. This experiment shows what I've learned about Python and [SVG](https://en.wikipedia.org/wiki/SVG) images. What I learned and show here is actually very useful regardless of whether you are using text-based or node-based Python.
+Tenho feito diferentes experimentos com Nodezator e outras bibliotecas Python a fim de identificar tarefas de programação que têm sinergia com uma abordagem de edição de nós. Este experimento mostra o que tenho aprendido sobre Python e imagens [SVG](https://pt.wikipedia.org/wiki/SVG). O que aprendi e mostro aqui é na verdade muito útil independente de você utilizar código Python diretamente ou por meio de edição de nós.
 
-As always, I'll be using the Nodezator app, a free generalist Python node editor for desktop. This is not a comprehensive guide, just simple demonstrations using technologies I'm familiar with. The pygame used is [pygame-ce](https://pyga.me), the community edition fork, which is the one currently used by Nodezator.
+Como sempre, estarei usando o app Nodezator, um editor de nós Python generalista e gratuito. Este não é um guia abrangente, apenas simples demonstrações usando tecnologias que são familiares para mim. A biblioteca pygame utilizada refere-se a [pygame-ce](https://pyga.me) (em inglês), o fork que representa uma nova edição da lançada por uma comunidade, que é a biblioteca correntemente utlizada pelo Nodezator.
 
-The code blocks shown here and there in this post are just rough representations of the code shown in the graph. Except for one specific demonstration that uses custom nodes I created, all of the remaining demonstrations make use of default nodes available by default in Nodezator. They are very simple nodes though, created only for the purpose of the demonstration, so I didn't share their source here. If you want their source just ask me and I'll send it to you right away.
+Os blocos de código que aparecem aqui e ali neste post são apenas representações brutas do código mostrado no grafo. Exceto numa demonstração específica que utiliza nós customizados que criei, todas as demonstrações restantes usam nós padrão que já vem prontos para uso no Nodezator. Eles são nós muito simples, no entanto, criados somente para a demosntração, motivo pelo qual eu não publiquei o código-fonte aqui. Se quiser o código-fonte basta pedir e te enviarei imediatamente.
 
-This post is also available in video:
+Este post também está disponível em vídeo (em inglês):
 
 <div class="ratio ratio-16x9 my-4">
     <iframe src="https://www.youtube.com/embed/kMGc5rxuQfg"></iframe>
@@ -31,28 +31,28 @@ This post is also available in video:
 
 
 
-## Using pygame to load SVG images
+## Usando pygame para carregar imagens SVG
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG image loaded as a surface" src="https://i.imgur.com/90HPeKd.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando imagem SVG carregada como uma superfície." src="https://i.imgur.com/90HPeKd.png" />
 
-Pygame/pygame-ce 2 can load SVG images as Surface objects, that is, as still images.
+Pygame/pygame-ce 2 pode carregar imagens SVG como objetos Surface (superfície), isto é, como imagens estáticas.
 
-By passing the path of the file to the load() function of pygame.image, the file is loaded as a Surface right away. The graph shown in the image is roughly equivalent to the call below (but the resulting surface is passed to the `view_surface` node within Nodezator):
+Ao passar o caminho para o arquivo para a função load() de pygame.image, o arquivo é carregado como uma Surface imediatamente. O grafo mostrado na imagem é aproximadamente equivalente à chamada abaixo (mas a superfície resultante é passada para o nó `view_surface` no Nodezator):
 
 ```python
 surface = pygame.image.load('path_to_svg_image.svg')
 ```
 
-This method offers no control over the output. We cannot control the scale of the image as we would if we were inside a web page. Also, I won't go into detail here, but SVG support offered by pygame is limited. Regardless of that though, I would argue that the subset of SVG that pygame/pygame-ce supports is more than enough for most purposes, including some advanced stuff.
+Este método não oferece nenhum controle sobre a saída. Não podemos controlar o tamanho da imagem como poderíamos dentro de uma página web. Adicionalmente, não entrarei em detalhes aqui, mas o suporte a SVG oferecido por pygame é limitado. Independente disso, no entanto, eu diria que o subconjunto do SVG que pygame/pygame-ce suporta é mais do que suficiente para a maioria dos propósitos, incluindo coisas avançadas.
 
 
-## Using pygame to load SVG data from string
+## Usando pygame para carregar dados SVG de uma string
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into surface" src="https://i.imgur.com/WJ1WrbN.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido numa superfície." src="https://i.imgur.com/WJ1WrbN.png" />
 
-Let's now see another possibility. People sometimes forget that SVG is a text file with instructions to create shapes. This means we can easily create SVG data by writing our own instructions.
+Vamos agora ver outra possibilidade. As pessoas às vezes esquecem que SVG é apenas um arquivo de texto com instruções para criar formas. Isso significa que podemos facilmente criar dados SVG por meio da escrita de nossas próprias instruções.
 
-In this example I wrote a simple text describing the flag of Japan in SVG. The SVG text:
+Neste exemplo escrevi um texto simples descrevendo a bandeira do Japão em SVG. O texto SVG:
 
 ```svg
 <svg width="300" height="200">
@@ -61,7 +61,7 @@ In this example I wrote a simple text describing the flag of Japan in SVG. The S
 </svg>
 ```
 
-Then I convert it into bytes, feed them into a BytesIO object, which works just like a file and feed this BytesIO object to the load() function of pygame's image module:
+Então converto ele em bytes, passo esses bytes para um objeto BytesIO, que funciona do mesmo jeito que um arquivo e passo esse objeto BytesIO para a função load() do módulo de imagem de pygame:
 
 ```python
 from io import BytesIO
@@ -84,15 +84,15 @@ surface = pygame.image.load(bytestream)
 ```
 
 
-## Using an object-oriented approach to describe SVG shapes (and control size)
+## Usando uma abordagem orientada a objetos para descrever formas SVG (e controlar tamanho)
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG XML objects converted into surface" src="https://i.imgur.com/TDxxZf2.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando objects SVG XML convertidos numa superfície." src="https://i.imgur.com/TDxxZf2.png" />
 
-On top of being a text file, SVG is actually a markup format. It is just XML. And, since Python has a standard library module to deal with XML objects using an object-oriented approach, you can manipulate SVG shapes with it. It's called [xml.etree.ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html).
+Além de ser um arquivo de texto, SVG é na verdade um arquivo de linguagem de marcação. É apenas XML. E, como Python tem uma biblioteca padrão para lidar com objetos XML com uma abordagem orientada a objetos, você pode manipular formas SVG com ela. Chama-se [xml.etree.ElementTree](https://docs.python.org/pt-br/3/library/xml.etree.elementtree.html).
 
-Here I created custom functions to encapsulate some of the library's behaviour as nodes.
+Aqui criei funções customizadas para encapsular parte do comportamento da biblioteca como nós.
 
-So, I have some basic objects again. I put them inside an SVG object, convert them as an XML bytestring and do the same as I did before: create a file-like object and feed it to pygame.image.load():
+Então, tenho algums objetos básicos novamente. Os coloco dentro de um objeto SVG, converto-os numa bytestring XML e faço o mesmo que fiz anteriormente: crio um objeto que funciona como um arquivo e o passo para pygame.image.load():
 
 ```python
 ### standard library imports
@@ -127,17 +127,17 @@ bytestream = BytesIO(svg_bytes)
 surface = pygame.image.load(bytestream)
 ```
 
-Again, this code results in the flag of Japan.
+Novamente, este código resulta na bandeira do Japão.
 
-Before we continue to the next demonstration, I'd like to demonstrate another possibility regarding this one.
+Antes de prosseguirmos para a próxima demonstração, gostaria de demonstrar outra possibilidade relacionada a esta demonstração.
 
-Since we have access to the individual attributes and their values, we can use them to control the scale of the generated surface as we wish.
+Como temos acesso aos atributos individuais e seus valores, podemos usá-los para controlar a escala da superfície gerada como desejarmos.
 
-For instance, rather than typing the values in each node (in each function call), I can just specify one of the values and have the remaining ones calculated based on it. Check the extra nodes in the image below.
+Por exemplo, ao invés de digitar valores em cada nó (em cada chamada de função), posso apenas especificar um dos valores e ter os demais valores calculados com base nele. Cheque os nós extras na imagem abaixo:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing width being passed through many operation nodes" src="https://i.imgur.com/EoMVqUw.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando o comprimento (width) sendo passado por muitos nós de operações." src="https://i.imgur.com/EoMVqUw.png" />
 
-I could have organized them better, but as I said, this is just a quick demonstration. I can just connect the calculated values to the corresponding nodes. Once I do this, I can specify only the width and the rest of the values are calculated automatically based on it. Here's what this looks like in Python code (it almost the same code as the previous block, but we define the width first and perform some calculations to define the other values used to create the SVG objects):
+Poderia tê-los organizado melhor, mas como disse, esta é apenas uma demonstração rápida. Posso apenas conectar os valores calculados aos nós correspondentes. Uam vez que faço isso, posso especificar somente o comprimento (width) e o resto dos valores é calculado automaticamente com base nele. Aqui está como isso tudo se traduz em código Python (é quase o mesmo código do bloco anterior, mas definimos o comprimento primeiro e fazemos alguns cálculos para definir os outros valores utilizados para criar objetos SVG):
 
 ```python
 ### standard library imports
@@ -185,23 +185,24 @@ bytestream = BytesIO(svg_bytes)
 surface = pygame.image.load(bytestream)
 ```
 
-By increasing the width we can see in the image below that the final surface is larger than the original, but it retains its proportions:
+Ao aumentar o comprimento podemos ver que na imagem abaixo que a superfície final é maior do que a original, mas retêm suas proporções:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing larger rendered image resulting from change in width" src="https://i.imgur.com/YsGmEgW.png" />
-
-As you can see, we managed to control the width with precision and the rest of the image was rendered with the same proportions.
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando uma imagem renderizada maior resultante da mudança no comprimento (width)." src="https://i.imgur.com/YsGmEgW.png" />
 
 
-## Using pygame to load SVG data from string (and control size)
+Como pode ver, conseguimos controlar o comprimento com precisão e o resto da imagem foi renderizada com as mesmas proporções.
 
 
-Yet another useful possibility is to control the size of the rendered image using SVG transforms. Although limited, pygame support for SVG still allows us to achieve a lot of things. One of them, is the possibility to easily scale SVG shapes we want to render and thus control the end result.
+## Usando pygame para carregar dados SVG de uma string (e controlar tamanho)
 
-Here we have a graph similar to a previous one, the one we used to illustrate how to load SVG from text, where we defined a flag of Japan:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into surface" src="https://i.imgur.com/bJc0spT.png" />
+Outra possibilidade útil é a de controlar o tamanho da imagem renderizada usando transformações SVG (transforms). Ainda que limitado, o suporte a SVG de pygame ainda nos permite alcançar muitas coisas. Uma delas é a possibilidade de facilmente redimensionar formas SVG que queremos renderizar e assim controlar o resultado final.
 
-So, here's the SVG text again...
+Aqui temos um grafo similar ao anterior, o que usamos para ilustrar como carregar SVG a partir de texto, onde definimos a bandeira do Japão:
+
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido numa superfície." src="https://i.imgur.com/bJc0spT.png" />
+
+Então, aqui está o texto SVG novamente...
 
 ```svg
 <svg width="300" height="200">
@@ -210,7 +211,7 @@ So, here's the SVG text again...
 </svg>
 ```
 
-Now, here's the magic: if we omit the width and height in the SVG element, the size of the resulting image will be the same as the area occupied by the shapes. On top of that, we can apply transforms very neatly on the shapes by grouping them together and defining the transforms we want to apply. Here's the resulting SVG text:
+Agora, aqui está a mágica: se omitirmos o comprimento e altura no elemento SVG, o tamanho da imagem resultante será o mesmo da área ocupada pelas formas. Ainda por cima podemos aplicar transformações (transforms) bem lisas nas formas ao agruparmos elas juntas e definirmos as transformações que queremos aplicar. Aqui está o texto SVG resultante:
 
 ```svg
 <svg>
@@ -221,11 +222,11 @@ Now, here's the magic: if we omit the width and height in the SVG element, the s
 </svg>
 ```
 
-Now let's see the resulting surface:
+Agora vejamos a superfície resultante:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into surface" src="https://i.imgur.com/q7W1Wt3.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido numa superfície." src="https://i.imgur.com/q7W1Wt3.png" />
 
-As we can see, a very neat scale transform was applied. Again, this allows a lot of control over the resulting image. Let's now also rotate the shape.
+Como podemos ver, uma transformação de redimensionamento bem lisa foi aplicada. Novamente, isto permite bastante controle sobre a imagem resultante. Vamos também girar a forma agora.
 
 ```svg
 <svg>
@@ -236,13 +237,13 @@ As we can see, a very neat scale transform was applied. Again, this allows a lot
 </svg>
 ```
 
-Let's see the result...
+Vejamos o resultado...
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into surface" src="https://i.imgur.com/jxpZ6f3.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido numa superfície." src="https://i.imgur.com/jxpZ6f3.png" />
 
-Again, very neatly scaled and rotated.
+Novamente, rotação e dimensionamentos bem lisos.
 
-Let's also skew it on the x axis!
+Vamos também distorcer/inclinar a image no eixo x!
 
 ```svg
 <svg>
@@ -253,25 +254,24 @@ Let's also skew it on the x axis!
 </svg>
 ```
 
-Again, we got interesting results:
+De novo, temos resultados interessantes:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into surface" src="https://i.imgur.com/xy9BNxr.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido numa superfície." src="https://i.imgur.com/xy9BNxr.png" />
 
-Let's move on to the next demonstration...
-
-
-## Handling SVG with cairoSVG
+Vamos prossegir à próxima demonstração...
 
 
-As I said before, pygame has limited support to SVG. As demonstrated, though, this still means a lot can be done with pygame.
+## Manipulando SVG com cairoSVG
 
-However, there are also alternatives. I didn't do a comprehensive research on the topic, but I've found a very simple and powerful library that is very handy. It is called [cairoSVG](https://cairosvg.org/). It can be used to convert SVG to many formats and has better support for SVG than pygame.
+Como disse antes, pygame tem suporte limitado ao SVG. Como demonstrado, no entanto, isso ainda significa que bastante coisa pode ser feito com pygame.
 
-We'll be using a function called `svg2png()` from that library. In the graph below I use it to convert SVG to PNG, then I load the PNG data as a pygame Surface, so we can visualize it.
+No entanto, há alternativas. Não fiz uma pesquisa abrangente do tópico, mas achei uma biblioteca muito simples e poderosa que é muito útil. Chama-se [cairoSVG](https://cairosvg.org/). Ela pode ser usada para converter SVG para muitos formatos e tem melhor suporte a SVG do que pygame.
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG file converted into PNG with cairoSVG, displayed as a pygame Surface" src="https://i.imgur.com/rRUYFKP.png" />
+Estaremos utilizando uma função chamada `svg2png()` daquela biblioteca. No grafo abaixo eu a utilizo para converter SVG para PNG, e então carrego os dados PNG como uma Surface de pygame, para que possamos visualizar.
 
-The graph would be roughly equivalent to:
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando arquivo SVG convertido em PNG com cairoSVG, visualizado como uma Surface em pygame." src="https://i.imgur.com/rRUYFKP.png" />
+
+O grafo seria aproximadamente equivalente a:
 
 ```python
 from io import BytesIO
@@ -288,9 +288,9 @@ bytestream = BytesIO(png_data)
 surface = pygame.image.load(bytestream)
 ```
 
-Although not shown in the image, CairoSVG offers additional options when converting SVG. It allows us to directly control the generated format via parameters. We can use the options in the functions used to convert SVG files. For instance, the `svg2png()` function has parameters like `scale`, `output_width` and `output_height` that allows users to specify the scale, width or height of the output PNG data/image with precision.
+Ainda que não mostrado na imagem, CairoSVG oferece opções adicionais ao converter SVG. Permite-nos direto controle do formato gerado por meio de parâmetros. Podemos usar as opções nas funções utilizadas para converter arquivos SVG. Por exemplo, a função `svg2png()` tem parâmetros como `scale` (escala/tamanho), `output_width` (comprimento da saída) e `output_height` (largura/altura da saída) que permite a usuários especificar com precisão o tamanho, comprimento ou largura/altura da imagem PNG gerada.
 
-For instance, a slight change in the previous Python code would allow us to directly control the width of our file, like this:
+Por exemplo, uma leve mudança no código Python anterior nos permitiria controlar diretamente o comprimento do nosso arquivo, desse jeito:
 
 ```python
 from io import BytesIO
@@ -300,7 +300,8 @@ from cairosvg import svg2png
 import pygame
 
 
-# just added output_width to call and now we can specify any width we want
+# simplesmente adicionei output_width à chamada e agora podemos especificar
+# qualquer comprimento que quisermos
 png_data = svg2png(url="path_to_svg_file.svg", output_width=400)
 
 bytestream = BytesIO(png_data)
@@ -308,14 +309,14 @@ bytestream = BytesIO(png_data)
 surface = pygame.image.load(bytestream)
 ```
 
-There are other useful options, but we don't cover them here.
+Há outras opções úteis, mas não as cobriremos aqui.
 
 
-## Handling SVG with cairoSVG (SVG text)
+## Manipulando SVG com cairoSVG (texto SVG)
 
-Just like pygame, we can also use SVG text. We feed the SVG text as a bytestring to the function svg2png(), since it has an option for that.
+Assim como pygame, também podemos usar texto SVG. Nós passamos o texto SVG como uma bytestring para a função svg2png(), já que ela tem uma opção para isso.
 
-Here's the SVG text:
+Aqui está o texto SVG:
 
 ```svg
 <svg width="300" height="200">
@@ -324,13 +325,13 @@ Here's the SVG text:
 </svg>
 ```
 
-We turn this text into bytes and feed it to svg2png() using the "bytestring" option.
+Tornamos esse texto em bytes e passamos para svg2png() usando a opção "bytestring".
 
-The resulting graph is like this:
+O grafo resultante é assim:
 
-<img class="img-fluid mb-4" alt="nodezator screenshot showing SVG text converted into PNG with cairoSVG, displayed as a pygame Surface" src="https://i.imgur.com/ElbN3QI.png" />
+<img class="img-fluid mb-4" alt="Captura de tela do Nodezator mostrando texto SVG convertido em PNG com cairoSVG, visualizado como uma Surface de pygame." src="https://i.imgur.com/ElbN3QI.png" />
 
-And here's the equivalent Python code:
+E aqui está o código Python equivalente:
 
 ```python
 from io import BytesIO
@@ -357,28 +358,28 @@ surface = pygame.image.load(bytestream)
 ```
 
 
-## Comparing SVG support for cairoSVG and pygame
+## Comparando suporte SVG de cairoSVG e pygame
 
-Additionally, as I said before, cairoSVG has better support for SVG, so it can render stuff that pygame wouldn't be able to. For instance, the image below shows the same SVG file as rendered by pygame (left) and cairoSVG (right):
+Adicionalmente, como disse antes, cairoSVG tem melhor suporte para SVG, de maneira que pode renderizar coisas que pygame não seria capaz de renderizar. Por exemplo, a imagem abaixo mostra o mesmo arquivo SVG assim como renderizado por pygame (esquerda) e cairoSVG (direita):
 
-<img class="img-fluid mb-4" alt="two images side-by-side, representing same SVG file rendered with pygame-ce (left) and cairoSVG (right)" src="https://i.imgur.com/HXorWyF.png" />
+<img class="img-fluid mb-4" alt="Duas imagens lado a lad, representando o mesmo arquivo SVG renderizado com pygame-ce (esquerda) e cairoSVG (direita)." src="https://i.imgur.com/HXorWyF.png" />
 
-The images are rendered with no errors being raised, but cairoSVG was able to render more elements than pygame. The SVG file can be found [here](https://en.wikipedia.org/wiki/File:Boolean_operations_on_shapes-en.svg).
+As imagens foram renderizadas sem gerar erros, mas cairoSVG foi capaz de renderizar mais elementos do que pygame. O arquivo SVG pode ser achado [aqui](https://en.wikipedia.org/wiki/File:Boolean_operations_on_shapes-en.svg).
 
-Again, I'd like to stress that this doesn't make pygame unfit for working with SVG. pygame's SVG support is still very useful and can be used for a lot of things. However, it is great that we have alternatives like cairoSVG, that can do even more, so we can use it whenever needed.
+Novamente, gostaria de reforçar que isto não torna pygame inapropriado para trabalhar com SVG. O suporte a SVG de pygame ainda é muito útil e pode ser usado para muitas coisas. No entanto, é ótimo que tenhamos alternativas como cairoSVG, que pode fazer ainda mais, de maneira que possamos usá-la quando for necessário.
 
 
-## pygame-ce's SVG capabilities
+## Funcionalidades SVG de pygame-ce
 
-I'd like to finish this demonstration by showing some useful stuff than can be easily done with SVG in pygame. Stuff that would otherwise require too much work to do using other methods.
+Gostaria de terminar esta demonstração mostrando algumas coisas úteis que pode ser facilmente feitas com SVG usando pygmae. Coisas que doutra maneira iriam requerer trabalho demais usando outros métodos.
 
-The image below shows SVG images rendered with pygame-ce:
+A imagem abaixo mostra imagens SVG renderizadas com pygame-ce:
 
-<img class="img-fluid mb-4" alt="several images side-by-side, representing SVG images rendered with pygame-ce" src="https://i.imgur.com/jwFiMHM.png" />
+<img class="img-fluid mb-4" alt="Várias imagens lado a lado, representando imagens SVG renderizadas com pygame-ce." src="https://i.imgur.com/jwFiMHM.png" />
 
-So, for instance, you can create stuff like the dashed lines indicated by the letter A in the image above. Or a smooth curved path shown with the letter B. Or, why not, a dashed path as shown in C. And even gradients, as shown in D.
+Então, por examplo, você pode criar coisas como as linhas tracejadas indicadas pela letra A na imagem acima. Ou um caminho de curva lisa mostrado com a letra B. Ou, por que não, um caminhho tracejado como mostrado na letra C. E mesmo gradientes, como mostrado na letra D.
 
-Here are the respective SVG texts:
+Aqui estão os respectivos textos SVG:
 
 A:
 
@@ -431,8 +432,8 @@ D:
 ```
 
 
-## Conclusion
+## Conclusão
 
-And with that, we conclude this brief demonstration.
+E com isso, concluimos esta breve demonstração.
 
-Please, consider supporting the development and maintenance of Nodezator by [becoming a patron](https://patreon.com/KennedyRichard) of the Indie Smiths project or using another of the many available [donation options](https://indiesmiths.com/donate). Also subscribe to our youtube channel, [@IndieSmiths](https://youtube.com/@IndieSmiths), and follow us on our social networks, [Twitter/X](https://x.com/KennedyRichard), [mastodon/fosstodon](https://fosstodon.org/@KennedyRichard), [bluesky](https://bsky.app/profile/kennedyrichard.com) and more.
+Por favor, considere dar suporte ao desenvolvimento e manutenção do Nodezator [se tornando um patrão](https://patreon.com/KennedyRichard) (site em inglês, mas permite mudar interface para português do Brasil) do projeto Indie Smiths ou usando outra das muitas [opções de doação disponíveis](https://indiesmiths.com/pt-br/doe). Também se inscreva no nosso canal no YouTube, [@IndieSmiths](https://youtube.com/@IndieSmiths) (em inglês), e nos siga nas nossas redes sociais,[Twitter/X](https://x.com/KennedyRichard), [mastodon/fosstodon](https://fosstodon.org/@KennedyRichard), [bluesky](https://bsky.app/profile/kennedyrichard.com) e mais.
