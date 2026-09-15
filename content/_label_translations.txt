@@ -4,6 +4,7 @@ translated_by
     en-us Translated by
     pt-br Traduzido por
 
+
 page
 
     lang_keywords
@@ -177,6 +178,11 @@ post
 
         en-us year-month-day
         pt-br ano-mês-dia
+
+    read_more
+
+        en-us Read more
+        pt-br Leia mais
 
     metadata
 
