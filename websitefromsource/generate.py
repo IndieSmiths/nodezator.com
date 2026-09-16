@@ -643,11 +643,18 @@ def generate_site_for_locale(locale_path):
 
     ## redirection data
 
-    redirections_data = (
-        literal_eval(
-            (locale_path / '_redirections.pyl').read_text(encoding='utf-8')
+    try:
+
+        python_literal_text = (
+            (locale_path / '_redirections.pyl')
+            .read_text(encoding='utf-8')
         )
-    )
+
+    except FileNotFoundError:
+        redirections_data = {}
+
+    else:
+        redirections_data = literal_eval(python_literal_text)
 
     ## process each item
 
