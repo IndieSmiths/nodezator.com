@@ -110,7 +110,7 @@ page
         find_nodes
 
             en-us Find nodes
-            pt-br Encontre nós (inglês)
+            pt-br Encontre nós/nodes (inglês)
 
         site_search_placeholder
 

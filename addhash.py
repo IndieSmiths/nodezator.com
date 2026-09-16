@@ -7,9 +7,23 @@ from subprocess import check_output
 
 from pathlib import Path
 
+from shlex import split
+
+
+
+GIT_COMMAND = 'git rev-parse HEAD'
+GIT_COMMAND_ELEMENTS = split(GIT_COMMAND)
+
 
 try:
-    full_hash = check_output('git rev-parse HEAD'.split()).decode('ascii').strip()
+
+    full_hash = (
+
+        check_output(GIT_COMMAND_ELEMENTS)
+        .decode('ascii')
+        .strip()
+
+    )
 
 except Exception as err:
 
@@ -22,25 +36,19 @@ else:
     hash_head = full_hash[:7]
     hash_tail = full_hash[7:]
 
-    hash_html = f"hash: <b>{hash_head}</b>{hash_tail}"
+    hash_html = f" (hash: <b>{hash_head}</b>{hash_tail})"
 
     output_dir = Path(__file__).parent / '_output'
+    
+    search_text = '<!-- hash placeholder -->'
 
     html_pages = output_dir.glob('**/*.html')
-    
-    search_text = 'source</a>'
 
     for page in html_pages:
 
         text = page.read_text(encoding='utf-8')
 
-        try:
-            index = text.rindex(search_text)
+        if search_text in text:
 
-        except ValueError:
-            continue
-
-        else:
-
-            new_text = text.replace(search_text, f'{search_text} ({hash_html})')
+            new_text = text.replace(search_text, hash_html)
             page.write_text(new_text, encoding='utf-8')
