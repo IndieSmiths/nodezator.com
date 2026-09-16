@@ -42,7 +42,7 @@ else:
     _hash_tail = _full_hash[7:]
 
     commit_html = (
-        ' (commit: <a href="https://github.com/IndieSmiths/nodezator/commit/'
+        ' (commit: <a href="https://github.com/IndieSmiths/nodezator.com/commit/'
         f'{_full_hash}">{_hash_head}</a>{_hash_tail})'
     )
 
