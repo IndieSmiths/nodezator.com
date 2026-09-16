@@ -80,7 +80,7 @@ page
         manual
 
             en-us Manual
-            pt-br Manual
+            pt-br Manual (inglês)
 
         screenshots
 
