@@ -1,0 +1,282 @@
+
+translated_by
+
+    en-us Translated by
+    pt-br Traduzido por
+
+
+page
+
+    lang_keywords
+
+        en-us node editor, node editing, generalist node editor, python generalist node editor, python programming language, graph, desktop application, public domain, open-source software
+        pt-br editor de nós, edição de nós, editor de nós generalista, editor de nós generalista de python, linguagem de programação python, grafo, aplicativo de desktop, domínio público, software de código aberto
+
+    header_and_nav
+
+        header_text
+
+            en-us Nodezator: multi-purpose visual node editor for the Python programming language
+            pt-br Nodezator: editor visual de nós multipropósito para a linguagem de programação Python
+
+        logo_alt
+
+            en-us Nodezator's logo symbol
+            pt-br Logo (isotipo) de Nodezator
+
+        pip_text
+
+            # this will look like this:
+            # "'pip install nodezator', then run the 'nodezator' command"
+
+            en-us {pip_command}, then run the {nodezator_command} command
+            pt-br {pip_command}, depois execute o comando {nodezator_command}
+
+        home
+
+            en-us Home
+            pt-br Início
+
+        about
+
+            en-us About
+            pt-br Sobre
+
+        about_link
+
+            en-us about
+            pt-br sobre
+
+        features
+
+            en-us Features
+            pt-br Funcionalidades
+
+        features_link
+
+            en-us features
+            pt-br funcionalidades
+
+        essays
+
+            en-us Essays
+            pt-br Ensaios
+
+        essays_link
+
+            en-us essays
+            pt-br ensaios
+
+        posts
+
+            en-us Posts
+            pt-br Posts
+
+        posts_link
+
+            en-us posts
+            pt-br posts
+
+        manual
+
+            en-us Manual
+            pt-br Manual (inglês)
+
+        screenshots
+
+            en-us Screenshots
+            pt-br Capturas de tela
+
+        screenshots_link
+
+            en-us screenshots
+            pt-br capturas-de-tela
+
+        donate
+
+            en-us Donate
+            pt-br Doe
+
+        donate_link
+
+            en-us https://indiesmiths.com/donate
+            pt-br https://indiesmiths.com/pt-br/doe
+
+        discord_link
+
+            en-us https://discord.gg/exg3Thvpw6
+            pt-br https://discord.gg/UnZuy68rxU
+
+        find_nodes
+
+            en-us Find nodes
+            pt-br Encontre nós/nodes (inglês)
+
+        site_search_placeholder
+
+            en-us Search
+            pt-br Pesquise
+
+    footer
+
+        contact_me
+
+            en-us Contact me
+            pt-br Me contate
+
+        email
+
+            en-us Email
+            pt-br Email
+
+        kennedy_site_link
+
+            en-us https://kennedyrichard.com
+            pt-br https://kennedyrichard.com/pt-br
+
+        my_website
+
+            en-us My website
+            pt-br Meu website
+
+        present
+
+            en-us present
+            pt-br presente
+
+        websites_source
+
+            en-us Website's source
+            pt-br Código-fonte do site
+
+    filenames
+
+        about
+
+            en-us about
+            pt-br sobre
+
+        features
+
+            en-us features
+            pt-br funcionalidades
+
+        screenshots
+            en-us screenshots
+            pt-br capturas-de-tela
+
+
+
+post
+
+    date_format
+
+        en-us date format
+        pt-br formato de datas
+
+    year_month_day
+
+        en-us year-month-day
+        pt-br ano-mês-dia
+
+    read_more
+
+        en-us Read more
+        pt-br Leia mais
+
+    metadata
+
+        written_by
+
+            en-us Written by
+            pt-br Escrito por
+
+        created_on
+
+            en-us Created on
+            pt-br Criado em
+
+        last_updated_on
+
+            en-us Last updated on
+            pt-br Atualizado em
+
+
+    category_info
+
+        essays
+
+            target_folder_name
+
+                en-us essays
+                pt-br ensaios
+
+            title
+
+                en-us Essays
+                pt-br Ensaios
+
+            description
+
+                en-us Essays related to Nodezator and/or tangential topics
+                pt-br Ensaios relacionados ao Nodezator e/ou tópicos tangenciais
+
+            keywords
+
+                en-us essays
+                pt-br ensaios
+
+            filenames
+
+                untapped_potential_text_interfaces
+
+                    en-us untapped-potential-text-interfaces
+                    pt-br potencial-indexplorado-interfaces-text
+
+        posts
+
+            target_folder_name
+
+                en-us posts
+                pt-br posts
+
+            title
+
+                en-us Posts
+                pt-br Posts
+
+            description
+
+                en-us Posts showcasing experiments with Nodezator
+                pt-br Posts mostrando experimentos com Nodezator
+
+            keywords
+
+                en-us posts, experiments
+                pt-br posts, experimentos
+
+            filenames
+
+                experiments_python_svg
+
+                    en-us experiments-python-svg
+                    pt-br experimentos-python-svg
+
+                render_math_notation_asciimath
+
+                    en-us render-math-notation-asciimath
+                    pt-br renderize-notacao-matematica-asciimath
+
+
+
+redirect_page
+
+    title
+
+        en-us Redirecting to another page
+        pt-br Redirecionando para outra página
+
+    message
+
+        en-us If you weren't redirected automatically, click this link to go to the intended page
+        pt-br Se você não foi redirecionado automaticamente, clique neste link para seguir para a página alvo
